@@ -38,7 +38,6 @@ namespace ConsoleApp
                     System.Environment.Exit(1);
                 }
             }
-            foreach (string i in arr) Console.WriteLine(i);
             var response = await client.DeleteAsync(dbLink + arr[0]);
             Console.WriteLine(response.StatusCode);
         }
@@ -65,7 +64,6 @@ namespace ConsoleApp
             for (int i = 0; i < quantity; i++)
             {
                 var res = await client.PostAsync(dbLink, new StringContent(""));
-                Console.WriteLine($"response {i} code {res.StatusCode.ToString()}");
                 if (res.IsSuccessStatusCode) { notEmpty = true; }
             }
             return notEmpty;
